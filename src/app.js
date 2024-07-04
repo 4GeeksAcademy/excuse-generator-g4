@@ -2,13 +2,16 @@
 import "bootstrap";
 import "./style.css";
 
-const excuse = document.getElementById("excuse");
-
 window.onload = function() {
   //write your code here
+  const excuse = document.getElementById("excuse");
 
   excuse.innerHTML = generateExcuse();
 };
+
+function randomIndex(arr) {
+  return Math.floor(Math.random() * arr.length);
+}
 
 function generateExcuse() {
   let who = ["The dog", "My grandma", "The mailman", "My bird"];
@@ -22,11 +25,10 @@ function generateExcuse() {
     "while I was praying"
   ];
 
-  return `${who[randomIndex(who)]} ${action[randomIndex(action)]} ${
-    what[randomIndex(what)]
-  } ${when[randomIndex(when)]}`;
-}
+  const randomWhoPhrase = who[randomIndex(who)];
+  const randomActionPhrase = action[randomIndex(action)];
+  const randomWhatPhrase = what[randomIndex(what)];
+  const randomWhenPhrase = when[randomIndex(when)];
 
-function randomIndex(arr) {
-  return Math.floor(Math.random() * arr.length);
+  return `${randomWhoPhrase} ${randomActionPhrase} ${randomWhatPhrase} ${randomWhenPhrase}`;
 }
